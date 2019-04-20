@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-import { UltimaRService } from 'src/app/services/ultima-r.service';
+import { UltimaRService } from 'src/app/shared/services/ultima-r.service';
 
 @Component({
     selector: 'app-dashboard',

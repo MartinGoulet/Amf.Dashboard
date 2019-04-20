@@ -9,7 +9,7 @@ namespace Amf.Ultima.Api.DataStorage
         public static List<PanierUltima> GetData()
         {
             var r = new Random();
-            var nb = r.Next(1, 5);
+            var nb = r.Next(0, 5);
             var retour = new List<PanierUltima>();
 
             for (var i = 1; i <= nb; i++)
