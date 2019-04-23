@@ -1,8 +1,15 @@
 <div [@routerTransition]>
-    <h2 class="text-muted">Dashboard <small>Statistics Overview</small></h2>
+    <h2 class="text-muted">{{ 'Dashboard' | translate}}</h2>
 
-    <div class="row" *ngIf="serviceUltima && serviceUltima.data">
+    <div class="row">
 
+        <div class="col-xl-3 col-lg-3"  *ngIf="data">
+            <app-stat [bgClass]="ObtenirCouleur()" 
+                      [icon]="'fa-tasks'" 
+                      [count]="data.length" 
+                      [label]="'Ultima'"></app-stat>
+        </div>
+<!-- 
         <div class="col-xl-3 col-lg-3">
             <app-stat [bgClass]="ObtenirCouleur()" [icon]="'fa-tasks'" [count]="serviceUltima.data.length" [label]="'Ultima'"></app-stat>
         </div>
@@ -13,14 +20,10 @@
 
         <div class="col-xl-3 col-lg-3">
             <app-stat [bgClass]="ObtenirCouleur()" [icon]="'fa-tasks'" [count]="serviceUltima.data.length" [label]="'Ultima'"></app-stat>
-        </div>
-
-        <div class="col-xl-3 col-lg-3">
-            <app-stat [bgClass]="ObtenirCouleur()" [icon]="'fa-tasks'" [count]="serviceUltima.data.length" [label]="'Ultima'"></app-stat>
-        </div>
+        </div> -->
 
     </div>
-    <hr />
-    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
+    <!-- <hr />
+    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert> -->
 
 </div>

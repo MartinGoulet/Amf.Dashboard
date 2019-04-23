@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { IPanierUltima } from '../models/PanierUltima';
 import * as signalR from '@aspnet/signalr';
+import { BehaviorSubject } from 'rxjs';
+import { ParamsInheritanceStrategy } from '@angular/router/src/router_state';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UltimaRService {
+
+  public data2: BehaviorSubject<IPanierUltima[]> = new BehaviorSubject<IPanierUltima[]>([]);
 
   public data: IPanierUltima[];
 
@@ -39,6 +43,7 @@ export class UltimaRService {
   public ecouterPanierUltimaErreur() {
     this.hubConnection.on('panier-ultima-erreur', (data) => {
       this.data = data;
+      this.data2.next(data);
       console.log(data);
     });
   }
